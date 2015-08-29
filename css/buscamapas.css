@@ -1,0 +1,105 @@
+/*
+Este estilo hace que las imagenes sean fijas y no se adapten.
+Lo mejor es cambiar la imagen con un media-query
+*/
+#menu-content {
+	position: absolute;
+	top: 40px;
+	right: 0;
+	bottom: 30px;
+	left: 0;
+}
+
+#search-maps-content {
+	position: absolute;
+	top: 40px;
+	right: 0;
+	bottom: 30px;
+	left: 0;
+	background-size: cover;
+}
+
+.ui-content {
+	background: transparent;
+	height: 100%;
+	background-size: cover;
+}
+/*
+.ui-slider-track .ui-btn.ui-slider-handle {
+    height: 28px;
+    margin: -15px 0 0 -15px;
+    outline: 0 none;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    width: 55px;
+    z-index: 1;
+}
+*/
+.ui-slider-track .ui-btn.ui-slider-handle {
+	width: 55px;
+}
+
+input.ui-slider-input {
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: content-box;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: 700;
+    height: 20px;
+    line-height: 20px;
+    margin: 0;
+    outline: 0 none;
+    padding: 4px;
+    text-align: center;
+    vertical-align: text-bottom;
+    width: 55px;
+}
+
+/*map page*/
+#map_container {
+	height: 100%;
+}
+
+/*movemos hacia abajo los botones de zoom*/
+.leaflet-top {
+	top: 40px !important;
+}
+
+.leaflet-control-zoom a {
+	border-radius: 8px !important;
+	height: 38px !important;
+	width: 38px !important;
+}
+
+/*
+ button
+ */
+.btn-success {
+	background-color: #5cb85c !important;
+	border-color: #4cae4c !important;
+	color: #fff !important;
+}
+
+.btn {
+	-moz-user-select: none;
+	background-image: none;
+	border: 1px solid transparent !important;
+	border-radius: 4px !important;
+	cursor: pointer !important;
+	display: inline-block !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	line-height: 1.42857 !important;
+	margin-bottom: 0 !important;
+	padding: 6px 12px !important;
+	text-align: center !important;
+	vertical-align: middle !important;
+	white-space: nowrap !important;
+	overflow: visible !important;
+	text-transform: none !important;
+	box-sizing: border-box !important;
+	text-decoration: none !important;
+}

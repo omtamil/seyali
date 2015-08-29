@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;user-scalable=no;target-densityDpi=device-dpi" />
+
+<title>செயலி</title>
+<link rel="stylesheet" href="css/Bootstrap.css">
+<link rel="stylesheet" href="./css/jquery.mobile-1.4.1.min.css" />
+<link rel="stylesheet" href="./css/jqm-icon-pack-fa.css" />
+<link rel="stylesheet" href="./css/leaflet.css" />
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="./css/leaflet.ie.css" />
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="./css/jquery.jqplot.css" />
+<link rel="stylesheet" type="text/css" href="./css/buscamapas.css" />
+
+
+<script src="./js/config.js"></script>
+
+<script src="./js/initialize.js"></script>
+
+<script src="phonegap.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<script src="./js/i18next-1.7.4.js"></script>
+
+<!-- leaflet -->
+<script src="./js/leaflet/leaflet.js"></script>
+<script src="./js/leaflet_layer_plugins/vector/KML.js"></script>
+<script src="./js/leaflet/Polyline.encoded.js"></script>
+<script src="./js/buscamapas.js"></script>
+<script src="./js/leaflet_scripts.js"></script>
+<!-- wkt -->
+<script src="./js/wkt/wicket.js"></script>
+<script src="./js/wkt/wicket-leaflet.js"></script>
+<!-- user agent parser -->
+<script src="./js/ua-parser/ua-parser.min.js"></script>
+
+<!-- mapquest -->
+<script src="./js/simplify.js"></script>
+<script src="./js/mapquest.js"></script>
+
+<!-- jqplot -->
+<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="./js/excanvas.js"></script><![endif]-->
+<script language="javascript" type="text/javascript" src="./js/jquery.jqplot.min.js"></script>
+<script language="javascript" type="text/javascript" src="./js/jqplot.canvasAxisLabelRenderer.js"></script>
+<script language="javascript" type="text/javascript" src="./js/jqplot.canvasTextRenderer.js"></script>
+<script language="javascript" type="text/javascript" src="./js/jqplot.pointLabels.js"></script>
+
+
+<script>
+//google analytics plugin
+var gaPlugin;
+
+//ios no gestiona los enlaces geo:
+var isIOS = false;
+
+var localesPath = 'js/locales/__lng__/__ns__.json';
+
+function prepareMapPageShow(){
+	$(document).on( "pageshow", "#map_page", function(e, _data){
+		showMapPage();	
+	});
+}
+
+//admob interstitial counter
+var num_map_views = 0;
+
+function sucessHandler(msg){
+	//alert("ok "+msg);
+}
+
+function errorHandler(msg){
+	//alert("error "+msg);
+}
+
+function dismiss(){
+	 if(gaPlugin){
+		 gaPlugin.exit(sucessHandler, errorHandler);
+	 }
+}
+
+function initAd(){
+    if ( window.plugins && window.plugins.AdMob ) {
+	    var ad_units = {
+			//ios : {
+			//	banner: 'ca-app-pub-6869992474017983/4806197152',
+			//	interstitial: 'ca-app-pub-6869992474017983/7563979554'
+			//},
+			android : {
+				banner: 'ca-app-pub-0587745999037652/3416124857',
+				interstitial: 'ca-app-pub-0587745999037652/9323057655'
+			}
+			//,wp8 : {
+			//	banner: 'ca-app-pub-6869992474017983/8878394753',
+			//	interstitial: 'ca-app-pub-6869992474017983/1355127956'
+			//}
+	    };
+	    var admobid = "";
+	    if( /(android)/i.test(navigator.userAgent) ) {
+	    	admobid = ad_units.android;
+	    } 
+	    /*
+	    else if(/(iphone|ipad)/i.test(navigator.userAgent)) {
+	    	admobid = ad_units.ios;
+	    } else {
+	    	admobid = ad_units.wp8;
+	    }
+         */
+        window.plugins.AdMob.setOptions( {
+            publisherId: admobid.banner,
+            interstitialAdId: admobid.interstitial,
+            bannerAtTop: false, // set to true, to put banner at top
+            overlap: false, // set to true, to allow banner overlap webview
+            offsetTopBar: false, // set to true to avoid ios7 status bar overlap
+            isTesting: false, // receiving test ad
+            autoShow: true // auto show interstitial ad when loaded
+        });
+
+        window.plugins.AdMob.createBannerView();  
+    } 
+}
+
+</script>
+
+</head>
+
+<body onunload="dismiss();">
+<div data-role="page" id="postIndex">
+
+<div data-role="header" data-position="fixed" data-theme="c">
+<a href="#menu" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-btn-left ui-nodisc-icon"></a>
+<h1>செயலி</h1>
+<a href="#omtamil" class="ui-btn ui-icon-info ui-btn-icon-notext ui-btn-right ui-nodisc-icon ui-alt-icon">OMTAMIL</a>
+</div>
+
+<div data-role="panel" id="menu" data-position="left" data-theme="f" data-display="overlay">
+<ul data-role="listview">
+<li data-icon="home" data-theme="e"><a href="#" data-rel="close">புதியப் பதிவு</a></li>
+<li data-icon="false">பாடங்கள்</li>
+<li data-icon="carat-r"><a href="tamil.html" rel="external">தமிழ்</a></li>
+<li data-icon="carat-r"><a href="english.html" rel="external">ஆங்கிலம்</a></li>
+<li data-icon="carat-r"><a href="malay.html" rel="external">மலாய்</a></li>
+<li data-icon="carat-r"><a href="maths.html" rel="external">கணிதம்</a></li>
+<li data-icon="carat-r"><a href="science.html" rel="external">அறிவியல்</a></li>
+<li data-icon="carat-r"><a href="it.html" rel="external">கணினி</a></li>
+<li data-icon="carat-r"><a href="history.html" rel="external">வரலாறு</a></li> 
+</ul>
+</div>
+
+<div data-role="panel" id="omtamil" data-position="right" data-display="overlay">
+<ul data-role="listview">
+<li data-icon="delete" data-rel="close" data-theme="c"><a href="#">செயலிப் பற்றி..</a></li>
+<center>
+<br><b>
+மாணவர் செயலி</b>
+<small><p>பதிப்பு 1.0.0
+<p>
+<small>ஓம்தமிழ், தித்தியான் டிசிட்டல் திட்டத்துடன் (Project Titian Digital) இணைந்து வழங்கும் தமிழ்ப் பள்ளி மாணவர் செயலி உருவாக்கும் பயிலரங்கு.  
+ <br>   சிம்பாங் லிமா தமிழ்ப்பள்ளி மாணவர்கள் அண்டிராய்டு மற்றும் ஐபோன் செயலிகளை தாங்களே உருவாக்கி கூகுள் பிலே மற்றும் ஆப்பிள் சந்தைகளில் வெளியிடுவர்.<br>
+</font></small>
+<br><br>
+<img src="img/omtamil.png" width="40%">
+<br>
+© OMTAMIL DOTCOM (002135971-U)</small>
+<br>
+<br>
+<a href="http://omtamil.com" rel="external">www.omtamil.com</a>
+</center>
+</ul>
+</div>
+
+<div data-role="main" data-role="content" class="ui-content" data-theme="b">
+<ul data-role="listview" id="postsList" data-theme="a" data-filter="true" data-inset="true" data-filter-placeholder="தேடவும்">		
+</ul>       
+</div>
+	</div>
+	
+	
+	<div data-role="footer" class="ui-bar">
+	</div>	
+
+	
+	
+	
+	<script>
+		initTextsAndBgImages();
+		//document.addEventListener("deviceready", onDeviceReady, true);
+		onDeviceReady();
+		document.addEventListener("deviceready", function(){
+			initAd();
+			navigator.splashscreen.hide();
+			if(window.plugins.gaPlugin){
+				gaPlugin = window.plugins.gaPlugin;
+		    	gaPlugin.init(sucessHandler, errorHandler, "UA-36976172-11", 10);
+			}
+		}, false);
+	</script>
+</body>
+</html>

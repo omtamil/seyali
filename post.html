@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;user-scalable=no;target-densityDpi=device-dpi" />
+
+<title>செயலி</title>
+<link rel="stylesheet" href="css/Bootstrap.css">
+<link rel="stylesheet" href="./css/jquery.mobile-1.4.1.min.css" />
+<link rel="stylesheet" href="./css/jqm-icon-pack-fa.css" />
+
+
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="./css/leaflet.ie.css" />
+<![endif]-->
+
+<script src="phonegap.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+
+</head>
+
+<body onunload="dismiss();">
+    <div data-role="page" id="postPage" data-theme="c">
+        <div data-role="header" data-position="fixed" data-theme="c">
+            <a href="javascript:goBack();" data-role="button" data-icon="back" data-rel="back" data-iconpos="notext" class="ui-nodisc-icon">Back</a>
+
+            <h1 id="title">செயலி</h1>
+        </div>
+        <div data-role="main" data-role="content" class="ui-content" data-theme="b">
+              <div id="post"></div>
+        </div>
+    </div> 
+
+</body>
+</html>

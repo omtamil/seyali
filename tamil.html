@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport"
+	content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;user-scalable=no;target-densityDpi=device-dpi" />
+
+<title>செயலிசெயலி</title>
+<link rel="stylesheet" href="css/Bootstrap.css">
+<link rel="stylesheet" href="./css/jquery.mobile-1.4.1.min.css" />
+<link rel="stylesheet" href="./css/jqm-icon-pack-fa.css" />
+
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="./css/leaflet.ie.css" />
+<![endif]-->
+
+<script src="phonegap.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</head>
+
+<body onunload="dismiss();">
+<div data-role="page" id="postLanguage">
+	
+	
+<div data-role="header" data-position="fixed" data-theme="c">
+<a href="#menu" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-btn-left ui-nodisc-icon"></a>
+<h1>தமிழ்</h1>
+<a href="#omtamil" class="ui-btn ui-icon-info ui-btn-icon-notext ui-btn-right ui-nodisc-icon ui-alt-icon">OMTAMIL</a>
+</div>
+
+<div data-role="panel" id="menu" data-position="left" data-theme="f" data-display="overlay">
+<ul data-role="listview">
+<li data-icon="home" data-theme="e"><a href="index.html" rel="external">புதியப் பதிவு</a></li>
+<li data-icon="false">பாடங்கள்</li>
+<li data-icon="carat-r"><a href="tamil.html" rel="external">தமிழ்</a></li>
+<li data-icon="carat-r"><a href="english.html" rel="external">ஆங்கிலம்</a></li>
+<li data-icon="carat-r"><a href="malay.html" rel="external">மலாய்</a></li>
+<li data-icon="carat-r"><a href="maths.html" rel="external">கணிதம்</a></li>
+<li data-icon="carat-r"><a href="science.html" rel="external">அறிவியல்</a></li>
+<li data-icon="carat-r"><a href="it.html" rel="external">கணினி</a></li>
+<li data-icon="carat-r"><a href="history.html" rel="external">வரலாறு</a></li> 
+</ul>
+
+</div>
+
+<div data-role="panel" id="omtamil" data-position="right" data-display="overlay">
+<ul data-role="listview">
+<li data-icon="delete" data-rel="close" data-theme="c"><a href="#">செயலிப் பற்றி..</a></li>
+<center>
+<br><b>
+மாணவர் செயலி</b>
+<small><p>பதிப்பு 1.0.0
+<p>
+<small>ஓம்தமிழ், தித்தியான் டிசிட்டல் திட்டத்துடன் (Project Titian Digital) இணைந்து வழங்கும் தமிழ்ப் பள்ளி மாணவர் செயலி உருவாக்கும் பயிலரங்கு.  
+ <br>   சிம்பாங் லிமா தமிழ்ப்பள்ளி மாணவர்கள் அண்டிராய்டு மற்றும் ஐபோன் செயலிகளை தாங்களே உருவாக்கி கூகுள் பிலே மற்றும் ஆப்பிள் சந்தைகளில் வெளியிடுவர்.<br>
+</font></small>
+<br><br>
+<img src="img/omtamil.png" width="40%">
+<br>
+© OMTAMIL DOTCOM (002135971-U)</small>
+<br>
+<br>
+<a href="http://omtamil.com" rel="external">www.omtamil.com</a>
+</center>
+</ul>
+</div>
+	
+<div data-role="main" data-role="content" class="ui-content" data-theme="b">
+<ul data-role="listview" id="postsList" data-theme="a"  data-filter="true" data-inset="true" data-filter-placeholder="தேடவும்">		
+</ul>   
+</div>
+
+</div> 
+
+</body>
+</html>
